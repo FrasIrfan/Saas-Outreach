@@ -6,7 +6,7 @@ const GetExtension = () => {
     return (
         <section className="w-full pb-2.5">
             <div className="w-full px-8 lg:px-16 flex justify-center mb-2.5">
-                <div className="w-full max-w-[1520px] flex flex-col lg:flex-row items-start gap-1.5 lg:gap-2">
+                <div className="w-full max-w-[1520px] flex flex-col lg:flex-row items-stretch gap-1.5 lg:gap-2">
                 <motion.div 
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}

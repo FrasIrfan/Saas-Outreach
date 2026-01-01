@@ -17,21 +17,21 @@ const Navbar = () => {
 
   return (
     <nav className="relative z-50">
-      <div className="w-full px-12 lg:px-20 flex justify-center">
+      <div className="w-full px-8 lg:px-16 flex justify-center">
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="bg-black rounded-2xl pt-6 pb-6 px-8 lg:py-8 lg:px-12 flex items-center justify-between w-full max-w-[1520px] min-h-[70px] lg:min-h-[80px] my-2.5"
+          className="bg-black rounded-2xl pt-4 pb-4 pl-6 pr-6 lg:py-5 lg:pl-10 lg:pr-10 flex items-center justify-between w-full max-w-[1520px] min-h-[60px] lg:min-h-[70px] my-2.5"
         >
-          <div className="flex items-center gap-3 cursor-pointer pl-4">
+          <div className="flex items-center gap-3 cursor-pointer">
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#FFC367] to-orange-600 flex items-center justify-center">
               <Flame size={24} className="text-black" />
             </div>
             <span className="font-semibold text-2xl tracking-tight text-white">SaaS-Outreach</span>
           </div>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             <div className="flex items-center gap-8">
               <a 
                 href="#features"
@@ -65,12 +65,11 @@ const Navbar = () => {
               </a>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center">
               <AnimatedButton 
                 text="Start Free Campaign"
                 href="#"
                 variant="grey"
-                className="mr-4"
               />
             </div>
           </div>

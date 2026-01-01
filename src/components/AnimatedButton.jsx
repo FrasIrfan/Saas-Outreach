@@ -46,7 +46,7 @@ const AnimatedButton = ({
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
             href={href} 
-            className={`hero-cta-button group relative overflow-hidden text-base h-[52px] min-w-[200px] inline-flex items-center justify-center gap-2 w-fit font-semibold rounded-xl pt-[14px] pb-[14px] pl-5 pr-7 ${colors.bg} ${colors.text} ${className}`}
+            className={`hero-cta-button group relative overflow-hidden text-base h-[52px] min-w-[200px] inline-flex items-center justify-center gap-2 w-fit font-semibold rounded-xl pt-[14px] pb-[14px] pl-5 pr-5 ${colors.bg} ${colors.text} ${className}`}
         >
             <div
                 className={`hero-black-box absolute z-10 right-1.5 top-1.5 bottom-1.5 w-10 rounded-lg transition-[width] duration-[800ms] ease-[cubic-bezier(0.25,0.1,0.25,1)] ${colors.boxBg}`}
