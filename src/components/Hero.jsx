@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Star } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedButton from './AnimatedButton';
 
 const Hero = () => {
+    const phrases = [
+        'Smart Automation',
+        'AI-Powered Outreach'
+    ];
+    
+    const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+        }, 2000); // Change every 2 seconds
+
+        return () => clearInterval(interval);
+    }, [phrases.length]);
+
     return (
         <section>
             <div className="w-full px-8 lg:px-16 flex justify-center">
@@ -20,9 +35,24 @@ const Hero = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-5xl lg:text-6xl font-medium tracking-tight leading-tight mb-6 text-white"
+                        className="text-4xl lg:text-5xl font-medium tracking-tight leading-tight mb-6 text-white mt-8"
                     >
-                        Close more deals with AI-powered outreach <span className="font-serif italic text-[#FFC367]">smart automation</span>
+                        Close more deals with{' '}
+                        <span className="font-serif italic text-[#FFC367] inline-block min-w-[180px]">
+                            <AnimatePresence mode="wait">
+                                <motion.span
+                                    key={currentPhraseIndex}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -20 }}
+                                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                                    className="inline-block"
+                                    style={{ willChange: 'transform, opacity' }}
+                                >
+                                    {phrases[currentPhraseIndex]}
+                                </motion.span>
+                            </AnimatePresence>
+                        </span>
                     </motion.h1>
 
                     <motion.p 
@@ -43,7 +73,19 @@ const Hero = () => {
 
                     <div className="flex items-center gap-2 mb-8">
                         <span className="text-sm text-[#A1A1AA]">Featured on ProductHunt</span>
-                        <div className="w-4 h-4 rounded bg-green-500"></div>
+                        <a 
+                            href="https://www.producthunt.com" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FF6154] hover:bg-[#FF4D3D] transition-colors"
+                        >
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
+                                <path d="M2 17L12 22L22 17" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                                <path d="M2 12L12 17L22 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                            </svg>
+                            <span className="text-xs font-bold text-white">#1</span>
+                        </a>
                     </div>
 
                     <div className="flex items-center gap-4 mt-4">
